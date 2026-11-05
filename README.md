@@ -18,12 +18,19 @@ npm run serve   # http://localhost:4173
 
 `npm run build` produces the minified `css/main.css`.
 
+## CI and deploy
+
+`.github/workflows/site.yml` runs on every pull request and push to `main`. It compiles the SCSS, fails if the committed `css/main.css` is out of date, and runs `npm run check` (local files, anchors, JSON-LD and SEO files).
+
+Pushes to `main` then deploy the public files to GitHub Pages. In the repo, set **Settings > Pages > Source** to **GitHub Actions** once before the first deploy.
+
 ## Structure
 
 ```
 index.html            page, meta tags, JSON-LD (ExerciseGym, WebSite, FAQPage)
 scss/                 _tokens, _base, _components, _sections -> main.scss
 css/main.css          compiled output
+scripts/check-site.mjs checks run by CI
 js/main.js            nav, scrollspy, live open/closed status (IST), challenge countdown, map facade
 assets/img/           WebP photos from Instagram, logo, og-image.jpg (1200x630)
 assets/icons/         favicon + touch icons
