@@ -1,0 +1,14 @@
+{
+  "name": "kombu-fitness",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Static website for Kombu Fitness Centre, Judgemukku, Kakkanad, Kochi",
+  "scripts": {
+    "build": "sass scss/main.scss css/main.css --style=compressed --no-source-map",
+    "watch": "sass scss/main.scss css/main.css --watch",
+    "serve": "npx --yes serve -l 4173 ."
+  },
+  "devDependencies": {
+    "sass": "^1.80.0"
+  }
+}

@@ -1,0 +1,36 @@
+// Brand colours sampled from the Kombu crest: black field + punchy yellow
+// (the metallic gold version of the logo is used sparingly as an accent).
+$black: #0b0b0a;
+$ink: #141412;
+$ink-2: #1d1d1a;
+$line: rgba(242, 239, 230, 0.12);
+$bone: #efece3;
+$bone-2: #e4e0d4;
+$paper: #f7f5ef;
+$text: #f2efe6;
+$muted: #9b978b;
+$muted-dark: #5b584f;
+$yellow: #ffd21f;
+$yellow-deep: #f2b705;
+$gold: #c9a24a;
+
+$font-display: "Big Shoulders Display", "Arial Narrow", Impact, sans-serif;
+$font-body: "Archivo", system-ui, -apple-system, "Segoe UI", sans-serif;
+$font-ml: "Noto Sans Malayalam", sans-serif;
+
+$wrap: 1280px;
+$gutter: clamp(16px, 4vw, 40px);
+$radius: 22px;
+$radius-sm: 12px;
+$ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+
+$bp-sm: 600px;
+$bp-md: 860px;
+$bp-lg: 1100px;
+
+@mixin up($bp) {
+  @media (min-width: $bp) { @content; }
+}
+@mixin down($bp) {
+  @media (max-width: ($bp - 1px)) { @content; }
+}
