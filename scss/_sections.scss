@@ -8,11 +8,22 @@
   transition: background-color 0.3s, border-color 0.3s, transform 0.35s $ease;
   border-bottom: 1px solid transparent;
 
-  &.is-stuck {
+  // The blur lives on a pseudo-element: backdrop-filter on the header itself
+  // would make it the containing block for the fixed mobile nav, collapsing
+  // the open menu to a sliver inside the 76px bar.
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
     background: rgba($black, 0.86);
     backdrop-filter: blur(12px);
-    border-color: $line;
+    opacity: 0;
+    transition: opacity 0.3s;
   }
+
+  &.is-stuck { border-color: $line; }
+  &.is-stuck::before { opacity: 1; }
   &.is-hidden { transform: translateY(-100%); }
 
   &__inner {
@@ -481,28 +492,6 @@
   &__grid {
     display: grid;
     gap: 48px;
-    @include up($bp-lg) {
-      grid-template-columns: 1fr 1.1fr;
-      gap: 80px;
-      align-items: start;
-    }
-  }
-
-  &__word {
-    @include up($bp-lg) { position: sticky; top: 120px; }
-
-    span {
-      display: block;
-      color: $yellow;
-      font: 800 clamp(5rem, 15vw, 11rem)/1.15 $font-ml;
-    }
-    small {
-      display: block;
-      margin-top: 8px;
-      color: $muted;
-      font-size: 0.95rem;
-      em { color: $text; }
-    }
   }
 
   &__lede {
