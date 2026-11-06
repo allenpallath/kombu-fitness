@@ -485,46 +485,6 @@
   }
 }
 
-// Story ------------------------------------------------------------------
-.story {
-  padding: clamp(80px, 11vw, 150px) 0;
-
-  &__grid {
-    display: grid;
-    gap: 48px;
-  }
-
-  &__lede {
-    margin-top: 26px;
-    color: rgba($text, 0.8);
-    font-size: 1.2rem;
-    max-width: 48ch;
-  }
-}
-
-.pillars {
-  margin-top: 44px;
-  counter-reset: p;
-  border-top: 1px solid $line;
-
-  li {
-    counter-increment: p;
-    display: grid;
-    grid-template-columns: 56px 1fr;
-    gap: 6px 16px;
-    padding: 28px 0;
-    border-bottom: 1px solid $line;
-
-    &::before {
-      content: counter(p, decimal-leading-zero);
-      grid-row: span 2;
-      color: $yellow;
-      font: 800 1.6rem/1 $font-display;
-    }
-  }
-  p { color: $muted; }
-}
-
 // Challenge ----------------------------------------------------------------
 .challenge {
   position: relative;
